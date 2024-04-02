@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-   level1 =new Game;
+   level =new Game;
 }
 
 MainWindow::~MainWindow()
@@ -29,6 +29,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     this->hide();
-    //view.show();
+    level->showview();
 }
 

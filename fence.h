@@ -1,10 +1,11 @@
 #ifndef FENCE_H
 #define FENCE_H
-
-class fence
+#include <QGraphicsRectItem>
+#include <QObject>
+class Fence:public QObject , public QGraphicsPixmapItem
 {
 public:
-    fence();
+    Fence();
 };
 
 #endif // FENCE_H

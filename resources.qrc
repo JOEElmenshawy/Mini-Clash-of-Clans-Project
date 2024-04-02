@@ -1,10 +1,12 @@
 <RCC>
     <qresource prefix="/new/board">
-        <file>clan design.txt</file>
+        <file>clandesign.txt</file>
     </qresource>
     <qresource prefix="/new/images">
         <file>images/background.png</file>
         <file>images/caslte.png</file>
         <file>images/fence.png</file>
+        <file>images/grass.png</file>
+        <file>images/cannon.png</file>
     </qresource>
 </RCC>

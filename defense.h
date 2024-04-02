@@ -1,10 +1,11 @@
 #ifndef DEFENSE_H
 #define DEFENSE_H
-
-class defense
+#include <QGraphicsRectItem>
+#include <QObject>
+class Defense:public QObject , public QGraphicsPixmapItem
 {
 public:
-    defense();
+    Defense();
 };
 
 #endif // DEFENSE_H

@@ -1,3 +1,3 @@
 #include "castle.h"
 
-castle::castle() {}
+Castle::Castle() {}
