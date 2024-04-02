@@ -1,11 +1,15 @@
 #ifndef GAME_H
 #define GAME_H
+#include<QGraphicsScene>
+#include<QGraphicsView>
 
-class game
+class  Game
 {
 public:
-    game();
-
+    Game();
+private:
+    QGraphicsView view;
+    QGraphicsScene scene;
 };
 
 #endif // GAME_H
