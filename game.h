@@ -6,18 +6,22 @@
 #include "fence.h"
 #include "defense.h"
 #include "enemy.h"
+//#include <QObject>
 class  Game
 {
+
 public:
     Game();
-    void showview();
 
+    void showview();
+public slots:
 private:
     QGraphicsView * view;
     QGraphicsScene * scene;
     Castle* castle;
-    Fence* fence[120];
+    Fence** fence;
     Defense* defense;
+    int NumberOfFences;
 
 };
 

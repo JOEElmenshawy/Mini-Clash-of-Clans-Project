@@ -6,11 +6,14 @@
 #include<QFile>
 #include<QTextStream>
 #include<QGraphicsPixmapItem>
-
+#include "enemy.h"
+#include <QTimer>
 #include "game.h"
+#include <QFont>
 using namespace std;
 Game::Game()
 {
+    NumberOfFences=0;
     view= new QGraphicsView;
     view->setWindowTitle("Game Project");
     scene=new QGraphicsScene;
@@ -20,7 +23,7 @@ Game::Game()
     view->setBackgroundBrush(QBrush(QImage(":/new/images/images/background.png")));
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
+    view->setScene(scene);
     QFile file(":/new/board/clandesign.txt");
     file.open(QIODevice::ReadOnly);
     int boarddata[10][12];
@@ -30,10 +33,12 @@ Game::Game()
         for(int j=0;j<12;j++){
             stream>> temp;
             boarddata[i][j] = temp.toInt();
-            //cout<<boarddata[i][j]<<" ";
+            if (temp.toInt()==3)
+                NumberOfFences++;
 
         }
     }
+    fence=new Fence*[NumberOfFences];
     QPixmap castlephoto (":/new/images/images/caslte.png");
     castlephoto=castlephoto.scaledToWidth(75);
     castlephoto=castlephoto.scaledToHeight(75);
@@ -47,7 +52,8 @@ Game::Game()
     grassphoto=grassphoto.scaledToWidth(75);
     grassphoto=grassphoto.scaledToHeight(75);
 
-    for(int i=0;i<120;i++){
+    for(int i=0;i<NumberOfFences;i++)
+    {
         fence[i] = new Fence;
         fence[i]->setPixmap(fencephoto);
     }
@@ -87,7 +93,10 @@ Game::Game()
             }
         }
     }
-    view->setScene(scene);
+    //castle->createEnemy(castle,fence,NumberOfFences);
+  QTimer * timer = new QTimer();
+  QObject::connect(timer,SIGNAL(timeout()),castle,SLOT(createEnemy(castle,fence,NumberOfFences)));
+  timer->start(3000);
 
 }
 
@@ -95,3 +104,4 @@ void Game::showview()
 {
     view->show();
 }
+
