@@ -1,3 +1,3 @@
 #include "defense.h"
 
-defense::defense() {}
+Defense::Defense() {}

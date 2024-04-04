@@ -1,3 +1,10 @@
 #include "castle.h"
+#include "enemy.h"
+#include <QGraphicsScene>
+Castle::Castle() {}
 
-castle::castle() {}
+void Castle::createEnemy()
+{
+    Enemy* e= new Enemy;
+    scene()->addItem(e);
+}

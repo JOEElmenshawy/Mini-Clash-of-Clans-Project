@@ -1,10 +1,15 @@
 #ifndef CASTLE_H
 #define CASTLE_H
-
-class castle
-{
+#include <QGraphicsRectItem>
+#include <QObject>
+#include "fence.h"
+class Castle: public QObject , public QGraphicsPixmapItem
+{ Q_OBJECT
 public:
-    castle();
+    Castle();
+
+public slots:
+void createEnemy();
 };
 
-#endif // CASTLE_H
+#endif

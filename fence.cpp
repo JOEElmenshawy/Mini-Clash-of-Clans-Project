@@ -1,3 +1,3 @@
 #include "fence.h"
 
-fence::fence() {}
+Fence::Fence() {}

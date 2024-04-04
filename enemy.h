@@ -1,10 +1,21 @@
 #ifndef ENEMY_H
 #define ENEMY_H
-
-class Enemy
+#include <QGraphicsRectItem>
+#include <QObject>
+#include "castle.h"
+#include "fence.h"
+#include<QTimer>
+class Enemy:public QObject , public QGraphicsPixmapItem
 {
+    Q_OBJECT
 public:
     Enemy();
+private:
+    Castle * castleEnemy;
+    Fence ** fenceEnemy;
+    int fencecount;
+public slots:
+    void move();
 };
 
 #endif // ENEMY_H
