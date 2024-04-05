@@ -9,8 +9,9 @@ class Enemy:public QObject , public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Enemy();
+    Enemy(Castle*,Fence **, int);
 private:
+    QGraphicsPixmapItem * currentTarget;
     Castle * castleEnemy;
     Fence ** fenceEnemy;
     int fencecount;

@@ -6,10 +6,13 @@
 class Castle: public QObject , public QGraphicsPixmapItem
 { Q_OBJECT
 public:
-    Castle();
+    Castle(Fence **,int);
 
 public slots:
 void createEnemy();
+private:
+Fence** fencePassEnemy;
+    int fenceCount;
 };
 
 #endif
