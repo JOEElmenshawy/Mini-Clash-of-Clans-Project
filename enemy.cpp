@@ -19,8 +19,8 @@ Enemy::Enemy(Castle* c,Fence ** f, int co)
             currentTarget=fenceEnemy[i];
         }
     }
-
-    //int k=currentTarget->x();
+  //  scene()->removeItem(castleEnemy); erorrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+    //int k=currentTarget->x(); errorrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()),this,SLOT (move()));
    timer->start(200);
@@ -28,7 +28,6 @@ Enemy::Enemy(Castle* c,Fence ** f, int co)
 }
 void Enemy::move()
 {
-
     // if (x()>currentTarget->x())
     // {
 
