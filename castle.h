@@ -13,6 +13,7 @@ void createEnemy();
 private:
 Fence** fencePassEnemy;
     int fenceCount;
+    int health;
 };
 
 #endif
