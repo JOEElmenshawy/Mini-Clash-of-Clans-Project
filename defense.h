@@ -6,6 +6,9 @@ class Defense:public QObject , public QGraphicsPixmapItem
 {
 public:
     Defense();
+
+private:
+    int health;
 };
 
 #endif // DEFENSE_H

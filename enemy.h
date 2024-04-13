@@ -15,6 +15,8 @@ private:
     Castle * castleEnemy;
     Fence ** fenceEnemy;
     int fencecount;
+    bool continuemove;
+    int health;
 public slots:
     void move();
 };
