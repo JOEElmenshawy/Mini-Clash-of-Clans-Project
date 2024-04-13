@@ -58,7 +58,7 @@ Game::Game()
         fence[i] = new Fence;
         fence[i]->setPixmap(fencephoto);
     }
-    castle = new Castle;
+    castle = new Castle(fence,NumberOfFences);
     castle->setPixmap(castlephoto);
     defense = new Defense;
     defense->setPixmap(defencephoto);
@@ -97,8 +97,7 @@ Game::Game()
     //castle->createEnemy(castle,fence,NumberOfFences);
   QTimer * timer = new QTimer();
   QObject::connect(timer,SIGNAL(timeout()),castle,SLOT(createEnemy()));
-  timer->start(50);
-
+  timer->start(3000);
 }
 
 void Game::showview()
