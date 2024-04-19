@@ -95,13 +95,22 @@ Game::Game()
         }
     }
     //castle->createEnemy(castle,fence,NumberOfFences);
+
   QTimer * timer = new QTimer();
   QObject::connect(timer,SIGNAL(timeout()),castle,SLOT(createEnemy()));
   timer->start(3000);
 }
 
+void Game::mousePressEvent(QMouseEvent *event)
+{
+    bullet* B = new bullet();
+    B->setPos(event->pos());
+    scene->addItem(B);
+}
+
 void Game::showview()
 {
+
     view->show();
 }
 

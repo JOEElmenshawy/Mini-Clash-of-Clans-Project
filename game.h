@@ -2,17 +2,19 @@
 #define GAME_H
 #include<QGraphicsScene>
 #include<QGraphicsView>
+#include<QMouseEvent>
 #include "castle.h"
 #include "fence.h"
 #include "defense.h"
+#include"bullet.h"
 #include "enemy.h"
-//#include <QObject>
-class  Game
+#include <QObject>
+class  Game: public QGraphicsScene
 {
 
 public:
     Game();
-
+    void mousePressEvent(QMouseEvent*event);
     void showview();
 public slots:
 private:
