@@ -125,23 +125,14 @@ void Game::mousePressEvent(QGraphicsMouseEvent *event)
 }*/
 void Game::mousePressEvent(QMouseEvent *event)
 {
-
-    bullet* bull = new bullet();
-    bull->setPos(75*5,75*6);
-   bull->setRotation(40);
-    scene->addItem(bull);
-
-}
-
     bullet* B = new bullet(event->pos().x(), event->pos().y());
     B->setPos(75*5,75*4);
     scene->addItem(B);
     qDebug() << event->pos().x();
 
+}
 
-        qDebug() << "Left Mouse Button Pressed";
-
-}//QCursor::pos()
+  //QCursor::pos()
 bool Game::eventFilter(QObject *obj, QEvent *event)
 {
     if (event->type() == QEvent::MouseButtonPress) {

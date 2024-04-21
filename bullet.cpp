@@ -14,10 +14,6 @@ bullet::bullet(int x, int y):targetX(x),targetY(y) {
 }
 void bullet::move()
 {
-
-    int STEP =15;
-    int theta=rotation();//in degrees
-
     if(x()<0|| x()>1080||y()<0||y()>750)
     {
 
