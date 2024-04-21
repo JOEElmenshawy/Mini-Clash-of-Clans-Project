@@ -99,13 +99,13 @@ Game::Game()
     view->viewport()->installEventFilter(this);
   QTimer * timer = new QTimer();
   QObject::connect(timer,SIGNAL(timeout()),castle,SLOT(createEnemy()));
-<<<<<<< HEAD
+
   timer->start(1000);
-=======
+
   timer->start(3000);
   //defense->setFlag(QGraphicsItem::ItemIsFocusable);
   //defense->setFocus();
->>>>>>> acd01b488a77a36eda25106b100e566166c754ed
+
 }
 
 /*
@@ -125,23 +125,21 @@ void Game::mousePressEvent(QGraphicsMouseEvent *event)
 }*/
 void Game::mousePressEvent(QMouseEvent *event)
 {
-<<<<<<< HEAD
+
     bullet* bull = new bullet();
     bull->setPos(75*5,75*6);
    bull->setRotation(40);
     scene->addItem(bull);
 
 }
-=======
+
     bullet* B = new bullet(event->pos().x(), event->pos().y());
     B->setPos(75*5,75*4);
     scene->addItem(B);
     qDebug() << event->pos().x();
->>>>>>> acd01b488a77a36eda25106b100e566166c754ed
+
 
         qDebug() << "Left Mouse Button Pressed";
-
-
 
 }//QCursor::pos()
 bool Game::eventFilter(QObject *obj, QEvent *event)
