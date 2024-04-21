@@ -125,7 +125,7 @@ void Game::mousePressEvent(QGraphicsMouseEvent *event)
 }*/
 void Game::mousePressEvent(QMouseEvent *event)
 {
-    bullet* B = new bullet(event->pos().x(), event->pos().y());
+    bullet* B = new bullet(event->pos().x(), event->pos().y(),75*5,75*4);
     B->setPos(75*5,75*4);
     scene->addItem(B);
     qDebug() << event->pos().x();
