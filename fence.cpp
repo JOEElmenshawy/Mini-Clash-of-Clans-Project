@@ -1,7 +1,7 @@
 #include "fence.h"
 
 Fence::Fence() {
-    health = 3;
+    health = 10;
 
 }
 

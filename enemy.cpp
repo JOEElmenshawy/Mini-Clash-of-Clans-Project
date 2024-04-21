@@ -7,7 +7,7 @@ Enemy::Enemy(Castle* c,Fence ** f, int co)
     fenceEnemy=f;
     fencecount=co;
     continuemove =true;
-    health = 3;
+    health = 10;
     setPixmap(QPixmap(":/new/images/images/enemy.png").scaled(75, 75));
     setPos(100,100);
     int random_number = rand() %(800);
