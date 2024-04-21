@@ -4,6 +4,7 @@
 #include<QGraphicsScene>
 #include<QGraphicsView>
 #include<QBrush>
+#include<QLabel>
 #include<QFile>
 #include<QTextStream>
 #include<QGraphicsPixmapItem>//>
@@ -12,6 +13,10 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     QGraphicsView view;
+
+
+
+
 
     view.setWindowTitle("Game Project");
     QGraphicsScene scene;

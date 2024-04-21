@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/new/board">
         <file>clandesign.txt</file>
+        <file>images/Latestl1.jpg</file>
     </qresource>
     <qresource prefix="/new/images">
         <file>images/background.png</file>
@@ -10,5 +11,6 @@
         <file>images/cannon.png</file>
         <file>images/enemy.png</file>
         <file>images/bullet.png</file>
+        <file>images/MainMenue.jpg</file>
     </qresource>
 </RCC>
