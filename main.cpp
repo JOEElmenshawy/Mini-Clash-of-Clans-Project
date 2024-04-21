@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-
+#include"game.h"
 #include <QApplication>
 #include<QGraphicsScene>
 #include<QGraphicsView>
@@ -8,15 +8,15 @@
 #include<QFile>
 #include<QTextStream>
 #include<QGraphicsPixmapItem>//>
+Game *g;
+MainWindow *w;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    w= new MainWindow;
     QGraphicsView view;
 
-
-
-
+    g= new Game;
 
     view.setWindowTitle("Game Project");
     QGraphicsScene scene;
@@ -33,6 +33,6 @@ int main(int argc, char *argv[])
 
 
 
-    w.show();
+    w->show();
     return a.exec();
 }

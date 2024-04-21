@@ -10,6 +10,8 @@ class Enemy:public QObject , public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Enemy(Castle*,Fence **, int);
+    void Die();
+    void DecreaseHealth();
 private:
     QGraphicsPixmapItem * currentTarget;
     Castle * castleEnemy;
@@ -17,8 +19,10 @@ private:
     int fencecount;
     bool continuemove;
     int health;
+
 public slots:
     void move();
+
 };
 
 #endif // ENEMY_H

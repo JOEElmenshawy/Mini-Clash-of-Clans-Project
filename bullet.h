@@ -3,7 +3,6 @@
 #include<QGraphicsPixmapItem>
 #include<QObject>
 #include<QGraphicsItem>
-#include<QGraphicsScene>
 class bullet:public QObject, public QGraphicsPixmapItem
 {
 
@@ -11,12 +10,11 @@ class bullet:public QObject, public QGraphicsPixmapItem
 public slots:
     void move();
 public:
-    bullet(int x, int y,int param,int param2);
+    bullet(int x, int y);
+    double CalculatePos();
 private:
     int targetX;
     int targetY;
-    double slope ;
-    int sign;
 
 };
 

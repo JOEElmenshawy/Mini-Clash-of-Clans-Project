@@ -12,7 +12,7 @@
 #include "enemy.h"
 #include "defense.h"
 #include "fence.h"
-
+extern Game *g;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QPixmap p(":/new/images/images/MainMenue.jpg");
     ui->imagelabel->setPixmap(p);
-   level =new Game;
+    level =new Game;
     QPushButton *pushButton = new QPushButton("Start Game", ui->imagelabel);
     pushButton->setGeometry(QRect(100, 100, 100, 30));
     connect(pushButton, &QPushButton::clicked, this, &MainWindow::on_pushButton_clicked);
@@ -34,8 +34,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     this->hide();
-    level->showview();
-
+    g->showview();
+    this->~MainWindow();
 }
 
 

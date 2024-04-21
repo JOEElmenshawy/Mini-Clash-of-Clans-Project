@@ -1,13 +1,16 @@
 #include "enemy.h"
 #include <cmath>
 #include <QGraphicsScene>
+#include"game.h"
+extern Game *g;
 Enemy::Enemy(Castle* c,Fence ** f, int co)
 {
+
     castleEnemy=c;
     fenceEnemy=f;
     fencecount=co;
     continuemove =true;
-    health = 10;
+    health = 3;
     setPixmap(QPixmap(":/new/images/images/enemy.png").scaled(75, 75));
     setPos(100,100);
     int random_number = rand() %(800);
@@ -15,7 +18,19 @@ Enemy::Enemy(Castle* c,Fence ** f, int co)
 
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()),this,SLOT (move()));
-   timer->start(200);
+    timer->start(200);
+
+}
+void Enemy::DecreaseHealth(){
+    health--;
+    Die();
+}
+
+void Enemy::Die(){
+    if(health<=0){
+        scene()->removeItem(this);
+        delete this;
+    }
 
 }
 void Enemy::move()
@@ -28,6 +43,18 @@ void Enemy::move()
             if (fence) {
                 // Call member functions specific to Fence
                 fence->DecreaseHealth();
+                continuemove = false;
+                return;
+            }
+        }
+    }
+    QList<QGraphicsItem*> colliding_items2 = collidingItems();
+    for (int i = 0, n = colliding_items2.size(); i < n; ++i) {
+        if (typeid(*(colliding_items2[i])) == typeid(Castle)) {
+            Castle *C = dynamic_cast<Castle*>(colliding_items2[i]);
+            if (C) {
+                // Call member functions specific to Fence
+                C->DecreaseHealth();
                 continuemove = false;
                 return;
             }
