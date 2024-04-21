@@ -9,14 +9,18 @@
 #include"bullet.h"
 #include "enemy.h"
 #include <QObject>
-class  Game: public QGraphicsScene
+#include<QMouseEvent>
+class  Game: public QGraphicsView
 {
 
 public:
     Game();
-    void mousePressEvent(QMouseEvent*event);
+    bool eventFilter(QObject *obj, QEvent *event) override;
     void showview();
+    void generateBullet();
+
 public slots:
+    void mousePressEvent(QMouseEvent *event) override;
 private:
     QGraphicsView * view;
     QGraphicsScene * scene;

@@ -10,7 +10,7 @@
 #include <QTimer>
 #include "game.h"
 #include <QFont>
-
+#include"bullet.h"
 
 Game::Game()
 {
@@ -94,23 +94,56 @@ Game::Game()
             }
         }
     }
-    //castle->createEnemy(castle,fence,NumberOfFences);
 
+
+    view->viewport()->installEventFilter(this);
   QTimer * timer = new QTimer();
   QObject::connect(timer,SIGNAL(timeout()),castle,SLOT(createEnemy()));
   timer->start(3000);
+  //defense->setFlag(QGraphicsItem::ItemIsFocusable);
+  //defense->setFocus();
 }
 
+/*
+void Game::mousePressEvent(QGraphicsMouseEvent *event)
+{
+
+
+    if(event->button() == Qt::LeftButton)
+    {
+        bullet* B = new bullet();
+        B->setPos(event->pos());
+        B->setRotation(40);
+        scene()->addItem(B);
+
+    }
+
+}*/
 void Game::mousePressEvent(QMouseEvent *event)
 {
-    bullet* B = new bullet();
-    B->setPos(event->pos());
+    bullet* B = new bullet(event->pos().x(), event->pos().y());
+    B->setPos(75*5,75*4);
     scene->addItem(B);
-}
+    qDebug() << event->pos().x();
 
+        qDebug() << "Left Mouse Button Pressed";
+
+
+
+}//QCursor::pos()
+bool Game::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (mouseEvent->button() == Qt::LeftButton) {
+            mousePressEvent(mouseEvent);
+            return true; // Event handled
+        }
+    }
+    return QObject::eventFilter(obj, event);
+}
 void Game::showview()
 {
 
     view->show();
 }
-
