@@ -98,14 +98,16 @@ Game::Game()
 
   QTimer * timer = new QTimer();
   QObject::connect(timer,SIGNAL(timeout()),castle,SLOT(createEnemy()));
-  timer->start(3000);
+  timer->start(1000);
 }
 
 void Game::mousePressEvent(QMouseEvent *event)
 {
-    bullet* B = new bullet();
-    B->setPos(event->pos());
-    scene->addItem(B);
+    bullet* bull = new bullet();
+    bull->setPos(75*5,75*6);
+   bull->setRotation(40);
+    scene->addItem(bull);
+
 }
 
 void Game::showview()

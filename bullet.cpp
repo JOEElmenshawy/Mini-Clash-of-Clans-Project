@@ -11,8 +11,8 @@ bullet::bullet(QGraphicsItem *parent) {
 }
 void bullet::move()
 {
-    int STEP =30;
-    double theta=rotation();//in degrees
+    int STEP =15;
+    int theta=rotation();//in degrees
     double dy= STEP*qSin(qDegreesToRadians(theta));
     double dx= STEP*qCos(qDegreesToRadians(theta));
     setPos(x()+dx,y()+dy);
