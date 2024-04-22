@@ -2,10 +2,10 @@
 #include "enemy.h"
 #include"game.h"
 #include <QGraphicsScene>
-#include"game.h"
+
 extern Game *g;
 Castle::Castle(Fence ** f, int c) {
-    health=20;
+    Castlehealth=20;
     fencePassEnemy=f;
     fenceCount=c;
     QTimer * timer = new QTimer();
@@ -19,12 +19,16 @@ void Castle::createEnemy()
     scene()->addItem(e);
 }
 void Castle::DecreaseHealth(){
-    health--;
-    Die();
+    Castlehealth--;
+    CastleDie();
 }
 
-void Castle::Die(){
-    if(health<=0){
+void Castle::CastleDie(){
+    if(Castlehealth<=0){
+
+        scene()->clear();
+      //  g->gameOver();
+
 
     }
 

@@ -12,7 +12,9 @@
 #include <QFont>
 #include"bullet.h"
 #include"mainwindow.h"
+
 extern MainWindow *w;
+
 Game::Game()
 {
     NumberOfFences=0;
@@ -145,11 +147,8 @@ bool Game::eventFilter(QObject *obj, QEvent *event)
 void Game::gameOver()
 {
     view->hide();
-    bool shown= false;
-    if(shown==false)
-    { shown=true;
-        w=new MainWindow;
-        w->show();}
+    //QMessageBox::about(this,"GAME OVER","You lost\n" );
+    QMessageBox::information(nullptr,"fds", "fds");
 
 }
 void Game::level1()
@@ -186,18 +185,28 @@ void Game::level1()
     QPixmap fencephoto (":/new/images/images/fence.png");
     fencephoto=fencephoto.scaledToWidth(75);
     fencephoto=fencephoto.scaledToHeight(75);
-    QPixmap defencephoto (":/new/images/images/cannon.png");
+    QPixmap defencephoto (":/new/images/images/citizen.png");
     defencephoto=defencephoto.scaledToWidth(75);
     defencephoto=defencephoto.scaledToHeight(75);
     QPixmap grassphoto (":/new/images/images/grass.png");
     grassphoto=grassphoto.scaledToWidth(75);
     grassphoto=grassphoto.scaledToHeight(75);
 
+    citizens=new CitizenWorker;
+    //QPixmap citizenphoto (":/new/images/images/caslte.png");
+    //citizenphoto=citizenphoto.scaledToWidth(75);
+   // citizenphoto=citizenphoto.scaledToHeight(75);
+
     for(int i=0;i<NumberOfFences;i++)
     {
         fence[i] = new Fence;
         fence[i]->setPixmap(fencephoto);
     }
+  //  for(int i=0;i<5;i++)
+  //  {
+   //     citizens[i] = new CitizenWorker;
+   //     citizens[i]->setPixmap(citizenphoto);
+  //  }
     castle = new Castle(fence,NumberOfFences);
     castle->setPixmap(castlephoto);
     defense = new Defense;
@@ -208,6 +217,7 @@ void Game::level1()
     }
     int emptyiterator =0;
     int fenceiterator=0;
+    int citizeniterator=0;
     QGraphicsPixmapItem boardimages[10][12];
     for(int i=0;i<10;i++){
         for(int j=0;j<12;j++){
@@ -225,23 +235,30 @@ void Game::level1()
             {
                 defense->setPos(75*i,75*j);
                 scene->addItem(defense);
-            }
-            else
-            {
+            }else if(boarddata[i][j] == 3){
+
                 fence[fenceiterator]->setPos(75*i,75*j);
                 scene->addItem(fence[fenceiterator]);
                 fenceiterator++;
+
+            }
+            else
+            {
+
             }
         }
     }
 
+    //citizens->setPixmap(citizenphoto);
+    citizens->setPixmap(QPixmap(":/new/images/images/citizen.png").scaled(75, 75));
+    citizens->setPos(500,500);
 
+    scene->addItem(citizens);
+    citizeniterator++;
 
 
 
 }
-
-
 
 
 void Game::showview()

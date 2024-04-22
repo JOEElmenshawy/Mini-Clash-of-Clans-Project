@@ -9,9 +9,10 @@
 #include"bullet.h"
 #include "enemy.h"
 #include <QObject>
-
+#include <QPixmap>
+#include <random>
 #include<QMouseEvent>
-
+#include "citizenworker.h"
 class  Game: public QGraphicsView
 {
 
@@ -29,11 +30,12 @@ public:
 
 public slots:
 
-private:
+public:
     QGraphicsView * view;
     QGraphicsScene * scene;
     Castle* castle;
     Fence** fence;
+    CitizenWorker* citizens;
     Defense* defense;
     int NumberOfFences;
 
