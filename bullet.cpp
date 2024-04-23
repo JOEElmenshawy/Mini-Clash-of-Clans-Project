@@ -7,10 +7,7 @@
 #include"game.h"
 extern Game *g;
 bullet::bullet(int x, int y):targetX(x),targetY(y) {
-    QPixmap a(":/new/images/images/bullet.png");
-    a.scaledToWidth(10);
-    a.scaledToHeight(10);
-    this->setPixmap(a);
+    this->setPixmap(QPixmap (":/new/images/images/cannonball_PNG10.png").scaled(15,15));
 
     QTimer * timer= new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
@@ -42,11 +39,11 @@ void bullet::move()
     if(x()<0|| x()>1080||y()<0||y()>750)
     {
         scene()->removeItem(this);
-        delete this;
+            delete this;
     }
     int STEP =10;
 
-    // Angle in degrees
+     // Angle in degrees
 
     // Set the rotation of the bullet to face the target
     setRotation(CalculatePos());

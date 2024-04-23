@@ -22,6 +22,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Game* level;
+      Game* level;
 };
 #endif // MAINWINDOW_H

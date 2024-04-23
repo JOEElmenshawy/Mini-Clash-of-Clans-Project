@@ -9,33 +9,31 @@
 #include"bullet.h"
 #include "enemy.h"
 #include <QObject>
-#include <QPixmap>
-#include <random>
+
 #include<QMouseEvent>
-#include "citizenworker.h"
+
 class  Game: public QGraphicsView
 {
 
 public:
     Game();
-    void level1();
 
-    //using  QMouseEvent::mousePressEvent();
-    void mousePressEvent(QMouseEvent* event) override ;
+
+
+     void mousePressEvent(QMouseEvent* event) override ;
 
     bool eventFilter(QObject *obj, QEvent *event) override;
-    void gameOver();
+     void gameOver();
     void showview();
-    void generateBullet();
+
 
 public slots:
 
-public:
+private:
     QGraphicsView * view;
-    QGraphicsScene * scene;
+QGraphicsScene * scene;
     Castle* castle;
     Fence** fence;
-    CitizenWorker* citizens;
     Defense* defense;
     int NumberOfFences;
 

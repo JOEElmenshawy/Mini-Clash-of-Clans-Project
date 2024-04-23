@@ -11,7 +11,7 @@ CONFIG += c++17
 SOURCES += \
     bullet.cpp \
     castle.cpp \
-    citizenworker.cpp \
+    citizens.cpp \
     defense.cpp \
     enemy.cpp \
     fence.cpp \
@@ -22,7 +22,7 @@ SOURCES += \
 HEADERS += \
     bullet.h \
     castle.h \
-    citizenworker.h \
+    citizens.h \
     defense.h \
     enemy.h \
     fence.h \

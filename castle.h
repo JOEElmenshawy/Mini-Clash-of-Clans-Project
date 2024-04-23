@@ -3,19 +3,25 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 #include "fence.h"
-#include <QMessageBox>
+
 class Castle: public QObject , public QGraphicsPixmapItem
 { Q_OBJECT
 public:
     Castle(Fence **,int);
-    void CastleDie();
+    void Die();
     void DecreaseHealth();
+
 public slots:
-    void createEnemy();
+void createEnemy();
+    void createCitizens();
+
 private:
-    Fence** fencePassEnemy;
+Fence** fencePassEnemy;
     int fenceCount;
-    int Castlehealth;
+    int health;
+    int Iterator;
+    bool shown;
+
 };
 
 #endif

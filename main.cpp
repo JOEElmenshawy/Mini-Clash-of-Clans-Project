@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
 
     g= new Game;
 
+
+
     view.setWindowTitle("Game Project");
     QGraphicsScene scene;
     scene.setSceneRect(0,0,1200,1000);

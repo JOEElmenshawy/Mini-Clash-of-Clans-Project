@@ -1,8 +1,8 @@
 #include "fence.h"
 #include"game.h"
-//extern Game *g;
+extern Game *g;
 Fence::Fence() {
-    health = 20;
+    health = 10;
 
 }
 
@@ -14,7 +14,7 @@ void Fence::DecreaseHealth(){
 void Fence::Die(){
     if(health<=0){
         scene()->removeItem(this);
-        delete(this);
+        delete this;
     }
 
 }

@@ -12,6 +12,7 @@
         <file>images/enemy.png</file>
         <file>images/bullet.png</file>
         <file>images/MainMenue.jpg</file>
-        <file>images/citizen.png</file>
+        <file>images/citizenWorker.png</file>
+        <file>images/cannonball_PNG10.png</file>
     </qresource>
 </RCC>
