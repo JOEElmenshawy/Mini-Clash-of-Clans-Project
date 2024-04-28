@@ -16,8 +16,10 @@ SOURCES += \
     enemy.cpp \
     fence.cpp \
     game.cpp \
+    lostwindow.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    wonlevel.cpp
 
 HEADERS += \
     bullet.h \
@@ -27,10 +29,14 @@ HEADERS += \
     enemy.h \
     fence.h \
     game.h \
-    mainwindow.h
+    lostwindow.h \
+    mainwindow.h \
+    wonlevel.h
 
 FORMS += \
-    mainwindow.ui
+    lostwindow.ui \
+    mainwindow.ui \
+    wonlevel.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

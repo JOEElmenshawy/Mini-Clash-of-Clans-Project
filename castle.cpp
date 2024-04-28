@@ -5,6 +5,7 @@
 #include"game.h"
 #include"citizens.h"
 #include<QMessageBox>
+#include "lostwindow.h"
 extern Game *g;
 Castle::Castle(Fence ** f, int c) {
     Iterator=0;
@@ -47,7 +48,7 @@ void Castle::DecreaseHealth(){
 
 void Castle::Die(){
 
-        scene()->clear();
+    g->gameOver();
 
 
 

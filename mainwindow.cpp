@@ -3,6 +3,7 @@
 #include <QApplication>
 #include<QGraphicsScene>
 #include<QGraphicsView>
+#include <QPushButton>
 #include<QBrush>
 #include<QFile>
 #include<QTextStream>
@@ -20,10 +21,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QPixmap p(":/new/images/images/MainMenue.jpg");
     ui->imagelabel->setPixmap(p);
-    level =new Game;
     QPushButton *pushButton = new QPushButton("Start Game", ui->imagelabel);
     pushButton->setGeometry(QRect(100, 100, 100, 30));
-    connect(pushButton, &QPushButton::clicked, this, &MainWindow::on_pushButton_clicked);
+    connect(pushButton, &QPushButton::clicked, this, &MainWindow::clickStart);
 }
 
 MainWindow::~MainWindow()
@@ -31,8 +31,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::clickStart()
 {
+    delete g;
+    g=new Game;
     this->hide();
     g->showview();
     this->~MainWindow();

@@ -13,6 +13,8 @@
 #include"bullet.h"
 #include"mainwindow.h"
 #include<QMessageBox>
+#include "wonlevel.h"
+#include "lostwindow.h"
 extern MainWindow *w;
 Game::Game()
 {
@@ -99,26 +101,19 @@ Game::Game()
 
 
     view->viewport()->installEventFilter(this);
-QTimer *timer = new QTimer(this);
+wintimer = new QTimer(this);
 
 // Set a single-shot timer for 5 minutes
-timer->setSingleShot(true);
-timer->start(1 * 50* 1000); // 50 seconds in milliseconds
+wintimer->setSingleShot(true);
+wintimer->start(1 * 60* 1000); // 50 seconds in milliseconds
 
 // Connect a slot to the timeout() signal of the timer
-connect(timer, &QTimer::timeout, this, [=]()
+connect(wintimer, &QTimer::timeout, this, [=]()
 {
-     qDebug() << "Timer expired!";
-    scene->clear();
-    QMessageBox::information(nullptr,"Alert", "Win");
-
+    view->hide();
+    WonLevel* newlevel= new WonLevel;
+    newlevel->show();
 });
-    // This code block will be executed once the timer times out
-    //qDebug() << "Timer expired!";
-
-
-  //defense->setFlag(QGraphicsItem::ItemIsFocusable);
-  //defense->setFocus();
 
 }
 
@@ -146,12 +141,11 @@ bool Game::eventFilter(QObject *obj, QEvent *event)
 
 void Game::gameOver()
 {
+    scene->clear();
+    wintimer->stop();
 view->hide();
-    bool shown= false;
-if(shown==false)
-    { shown=true;
-    w=new MainWindow;
-w->show();}
+    LostWindow* l=new LostWindow;
+l->show();
 
 }
 

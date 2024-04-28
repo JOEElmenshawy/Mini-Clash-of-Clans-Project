@@ -9,7 +9,7 @@
 #include"bullet.h"
 #include "enemy.h"
 #include <QObject>
-
+#include <QTimer>
 #include<QMouseEvent>
 
 class  Game: public QGraphicsView
@@ -36,7 +36,7 @@ QGraphicsScene * scene;
     Fence** fence;
     Defense* defense;
     int NumberOfFences;
-
+    QTimer* wintimer;
 };
 
 #endif // GAME_H
